@@ -28,6 +28,8 @@ help:
 		"init		- Initialize Angular2 application.\n" \
 		"dep		- Install /update dependencies.\n" \
 		"build		- Build project.\n" \
+		"run:*		- Run anything.\n" \
+		"ng:*		- Run Angular2 task.\n" \
 		"clean		- Clean project.\n" \
 
 .PHONY: dep build clean
@@ -57,6 +59,10 @@ build: dep
 run\:%:
 	@$(DOCKER_RUN) \
 		$(subst run:,,$@)
+
+ng\:%:
+	@$(DOCKER_RUN) \
+		node node_modules/angular-cli/bin/ng $(subst ng:,,$@)
 
 clean:
 	@docker rm -f $(NAME)
