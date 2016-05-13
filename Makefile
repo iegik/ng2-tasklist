@@ -24,13 +24,21 @@ ifdef USE_DOCKER
 endif
 
 help:
-	@echo "USAGE\n\n" \
+	@echo "Usage:\n\n" \
 		"init		- Initialize Angular2 application.\n" \
 		"dep		- Install /update dependencies.\n" \
 		"build		- Build project.\n" \
 		"run:*		- Run anything.\n" \
 		"ng:*		- Run Angular2 task.\n" \
 		"clean		- Clean project.\n" \
+		"\n"\
+	"Enviroment variables:\n\n" \
+		"USE_DOCKER = $(USE_DOCKER)\n" \
+		"NAME = $(NAME)\n" \
+		"NODE_MODULES_DIR = $(NODE_MODULES_DIR)\n" \
+		"PORT_LIVERELOAD = $(PORT_LIVERELOAD)\n" \
+		"PORT = $(PORT)\n" \
+		"NODE_BUILDER = $(NODE_BUILDER)\n" \
 
 .PHONY: dep build clean
 
