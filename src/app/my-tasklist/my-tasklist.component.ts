@@ -11,6 +11,7 @@ export class MyTasklistComponent implements OnInit {
 
   tasks = TASKS;
   selectedTask: Task;
+  blank = false;
 
   constructor() {}
 
@@ -26,6 +27,19 @@ export class MyTasklistComponent implements OnInit {
       return n.id!==task.id;
     });
     this.selectedTask = new Task();
+  }
+
+  onCreate(task: Task) {
+    var date = new Date();
+    task.id = +date;
+    task.created = date.toISOString();
+    this.tasks.push(task);
+    this.blank = false;
+  }
+
+  onAdd(task: Task) {
+    this.selectedTask = new Task();
+    this.blank = true;
   }
 }
 

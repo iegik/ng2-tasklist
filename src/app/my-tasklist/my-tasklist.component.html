@@ -26,4 +26,6 @@
     <input [(ngModel)]="selectedTask.author" placeholder="author"/>
   </div>
   <button (click)="onDelete(selectedTask)">Delete</button>
+  <button *ngIf="blank" (click)="onCreate(selectedTask)">Create</button>
 </div>
+<button *ngIf="!blank" (click)="onAdd()">Add</button>
