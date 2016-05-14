@@ -20,6 +20,13 @@ export class MyTasklistComponent implements OnInit {
   onSelect(task: Task) {
      this.selectedTask = task;
   }
+
+  onDelete(task: Task) {
+    this.tasks = this.tasks.filter(function(n){
+      return n.id!==task.id;
+    });
+    this.selectedTask = new Task();
+  }
 }
 
 var TASKS: Task[] = [
