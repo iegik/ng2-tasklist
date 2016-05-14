@@ -1,3 +1,28 @@
 <p>
   my-tasklist works!
 </p>
+<ul class="tasks">
+  <li *ngFor="let task of tasks"
+    [class.selected]="task === selectedTask"
+    (click)="onSelect(task)">
+    <span class="badge">{{task.id}}</span> 
+    {{task.name}}
+  </li>
+</ul>
+<div *ngIf="selectedTask">
+  <h2>{{selectedTask.name}}</h2>
+  <div><label>id: </label>{{selectedTask.id}}</div>
+  <div><label>created: </label>{{selectedTask.created}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="selectedTask.name" placeholder="name"/>
+  </div>
+  <div>
+    <label>description: </label>
+    <input [(ngModel)]="selectedTask.description" placeholder="description"/>
+  </div>
+  <div>
+    <label>author: </label>
+    <input [(ngModel)]="selectedTask.author" placeholder="author"/>
+  </div>
+</div>

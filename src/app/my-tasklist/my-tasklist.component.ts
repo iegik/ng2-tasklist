@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from './task';
 
 @Component({
   moduleId: module.id,
@@ -8,9 +9,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTasklistComponent implements OnInit {
 
+  tasks = TASKS;
+  selectedTask: Task;
+
   constructor() {}
 
   ngOnInit() {
   }
 
+  onSelect(task: Task) {
+     this.selectedTask = task;
+  }
 }
+
+var TASKS: Task[] = [
+  {
+    id: 0,
+    name: 'список задач',
+    description: 'Сделать список задач с функциями',
+    created: new Date().toISOString(),
+    author: 'Arturs Jansons'
+  },
+  {
+    id: 1,
+    name: 'добавление',
+    description: 'добавление1',
+    created: new Date().toISOString(),
+    author: 'Arturs Jansons'
+  },
+  {
+    id: 2,
+    name: 'редактирование',
+    description: 'редактирование2',
+    created: new Date().toISOString(),
+    author: 'Arturs Jansons'
+  },
+  {
+    id: 4,
+    name: 'удаление',
+    description: 'удаление3',
+    created: new Date().toISOString(),
+    author: 'Arturs Jansons'
+  }
+];
+
