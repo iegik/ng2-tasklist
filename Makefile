@@ -28,6 +28,7 @@ help:
 		"init		- Initialize Angular2 application.\n" \
 		"dep		- Install /update dependencies.\n" \
 		"build		- Build project.\n" \
+		"dev		- Launch application on port $PORT.\n" \
 		"run:*		- Run anything.\n" \
 		"ng:*		- Run Angular2 task.\n" \
 		"clean		- Clean project.\n" \
@@ -61,6 +62,8 @@ init: angular-cli
 		node node_modules/angular-cli/bin/ng init
 
 build: dep
+
+dev: build
 	@$(DOCKER_APP) \
 		node node_modules/angular-cli/bin/ng serve
 
