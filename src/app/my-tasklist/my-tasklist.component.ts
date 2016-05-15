@@ -41,6 +41,27 @@ export class MyTasklistComponent implements OnInit {
     this.selectedTask = new Task();
     this.blank = true;
   }
+
+  orderBy(field, desc) {
+    this.tasks = this.tasks.sort(function(a,b){
+      if(!desc){
+        if (a[field] > b[field]){
+          return 1;
+        }
+        if (a[field] < b[field]){
+          return -1;
+        }
+      } else {
+        if (a[field] < b[field]){
+          return 1;
+        }
+        if (a[field] > b[field]){
+          return -1;
+        }
+      }
+      return 0;
+    });
+  }
 }
 
 var TASKS: Task[] = [
@@ -48,28 +69,28 @@ var TASKS: Task[] = [
     id: 0,
     name: 'список задач',
     description: 'Сделать список задач с функциями',
-    created: new Date().toISOString(),
+    created: new Date(14607e+8).toISOString(),
     author: 'Arturs Jansons'
   },
   {
     id: 1,
     name: 'добавление',
     description: 'добавление1',
-    created: new Date().toISOString(),
+    created: new Date(14604e+8).toISOString(),
     author: 'Arturs Jansons'
   },
   {
     id: 2,
     name: 'редактирование',
     description: 'редактирование2',
-    created: new Date().toISOString(),
+    created: new Date(14603e+8).toISOString(),
     author: 'Arturs Jansons'
   },
   {
     id: 4,
     name: 'удаление',
     description: 'удаление3',
-    created: new Date().toISOString(),
+    created: new Date(14606e+8).toISOString(),
     author: 'Arturs Jansons'
   }
 ];

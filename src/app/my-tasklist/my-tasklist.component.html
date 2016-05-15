@@ -6,7 +6,7 @@
     [class.selected]="task === selectedTask"
     (click)="onSelect(task)">
     <span class="badge">{{task.id}}</span> 
-    {{task.name}}
+    [{{task.created}}] {{task.name}}
   </li>
 </ul>
 <div *ngIf="selectedTask">
@@ -29,3 +29,8 @@
   <button *ngIf="blank" (click)="onCreate(selectedTask)">Create</button>
 </div>
 <button *ngIf="!blank" (click)="onAdd()">Add</button>
+<button *ngIf="tasks" (click)="orderBy('name', true)">↑ name</button>
+<button *ngIf="tasks" (click)="orderBy('name', false)">↓ name</button>
+<button *ngIf="tasks" (click)="orderBy('created', true)">↑ created</button>
+<button *ngIf="tasks" (click)="orderBy('created', false)">↓ created</button>
+
